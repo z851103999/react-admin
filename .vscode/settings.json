@@ -3,5 +3,6 @@
 		"persistor",
 		"stylelint"
 	],
-	"commentTranslate.source": "Bing"
+	"commentTranslate.source": "Bing",
+	"i18n-ally.localesPaths": []
 }
