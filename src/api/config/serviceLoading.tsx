@@ -4,6 +4,7 @@ import Loading from "@/components/Loading";
 let needLoadingRequestCount = 0;
 /**
  * 显示Loading
+ * @param {string} tipLoading 全局Loading显示内容
  */
 export const showFullScreenLoading = () => {
 	if (needLoadingRequestCount === 0) {

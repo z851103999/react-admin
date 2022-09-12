@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { GlobalState } from "./../../interface/index";
+import { GlobalState } from "@/redux/interface";
 import { produce } from "immer";
 import * as types from "@/redux/mutation-types";
 

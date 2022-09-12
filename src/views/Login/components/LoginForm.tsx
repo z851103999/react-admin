@@ -8,10 +8,11 @@ import { loginApi } from "@/api/modules/login";
 import { HOME_URL } from "@/config/config";
 import { connect } from "react-redux";
 import { setToken } from "@/redux/modules/global/action";
+import { setTabsList } from "@/redux/modules/tabs/actions";
 
 const LoginForm: React.FC = (props: any) => {
 	const [form] = Form.useForm();
-	const { setToken } = props;
+	const { setToken, setTabsList } = props;
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState<boolean>(false);
 
@@ -25,6 +26,7 @@ const LoginForm: React.FC = (props: any) => {
 			loginForm.password = md5(loginForm.password);
 			const { data } = await loginApi(loginForm);
 			setToken(data?.access_token);
+			setTabsList([]);
 			message.success("登陆成功");
 			navigate(HOME_URL);
 		} catch (error) {
@@ -73,5 +75,5 @@ const LoginForm: React.FC = (props: any) => {
 	);
 };
 
-const mapDispatchToProps = { setToken };
+const mapDispatchToProps = { setToken, setTabsList };
 export default connect(null, mapDispatchToProps)(LoginForm);

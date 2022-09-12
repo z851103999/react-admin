@@ -11,3 +11,26 @@ declare interface ViteEnv {
 	VITE_BUILD_GZIP: boolean;
 	VITE_REPORT: boolean;
 }
+
+/**
+ * menu
+ */
+declare namespace Menu {
+	interface MenuOptions {
+		path: string;
+		title: string;
+		icon?: string;
+		isLink?: string;
+		children?: MenuOptions[];
+	}
+}
+
+/**
+ * Dropdown MenuInfo
+ */
+declare interface MenuInfo {
+	key: string;
+	keyPath: string[];
+	item: React.ReactInstance;
+	domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
+}

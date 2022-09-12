@@ -5,12 +5,16 @@ import zhCN from "antd/es/locale/zh_CN";
 import Router from "@/routers/index";
 import "antd/dist/antd.css";
 import { connect } from "react-redux";
+import AuthRouter from "@/routers/utils/authRouter";
+// import AuthRouter from "@/routers/utils/authRouter";
 
 const App: React.FC = () => {
 	return (
 		<HashRouter>
 			<ConfigProvider locale={zhCN}>
-				<Router></Router>
+				<AuthRouter>
+					<Router />
+				</AuthRouter>
 			</ConfigProvider>
 		</HashRouter>
 	);
