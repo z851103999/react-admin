@@ -2,8 +2,10 @@ import React from "react";
 import { Layout } from "antd";
 import CollapseIcon from "./components/CollapseIcon";
 import BreadcrumbNav from "./components/BreadcrumbNav";
+import Fullscreen from "./components/Fullscreen";
 
 import "./index.less";
+
 const LayoutHeader: React.FC = () => {
 	const { Header } = Layout;
 
@@ -14,6 +16,7 @@ const LayoutHeader: React.FC = () => {
 				<BreadcrumbNav />
 			</div>
 			<div className="header-ri">
+				<Fullscreen />
 				<span className="username">React-admin</span>
 			</div>
 		</Header>
