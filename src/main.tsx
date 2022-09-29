@@ -1,15 +1,21 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "@/App";
-import "antd/dist/antd.css";
-import "@/styles/reset.less";
 import { store, persistor } from "@/redux";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import "antd/dist/antd.css";
+import "@/styles/reset.less";
+import "@/assets/iconfont/iconfont.less";
+import "@/assets/fonts/font.less";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
-	<Provider store={store}>
-		<PersistGate persistor={persistor}>
-			<App />
-		</PersistGate>
-	</Provider>
+	<React.StrictMode>
+		<Provider store={store}>
+			<PersistGate persistor={persistor}>
+				<App />
+			</PersistGate>
+		</Provider>
+	</React.StrictMode>
 );

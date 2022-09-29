@@ -1,14 +1,17 @@
 import { connect } from "react-redux";
 import "./index.less";
 
-const LayoutFooter = () => {
+const LayoutFooter = (props: any) => {
+	const { themeConfig } = props;
 	return (
 		<>
-			<div className="footer">
-				<a href="https://github.com/z851103999/react-admin" target="_blank" rel="noreferrer">
-					react-admin
-				</a>
-			</div>
+			{!themeConfig.footer && (
+				<div className="footer">
+					<a href="http://www.spicyboy.cn/" target="_blank" rel="noreferrer">
+						react-admin
+					</a>
+				</div>
+			)}
 		</>
 	);
 };

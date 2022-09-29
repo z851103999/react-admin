@@ -12,6 +12,7 @@ import "./index.less";
 
 const LayoutTabs = (props: any) => {
 	const { tabsList } = props.tabs;
+	const { themeConfig } = props.global;
 	const { setTabsList } = props;
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();
@@ -53,33 +54,35 @@ const LayoutTabs = (props: any) => {
 
 	return (
 		<>
-			<div className="tabs">
-				<Tabs
-					animated
-					activeKey={activeValue}
-					onChange={clickTabs}
-					hideAdd
-					type="editable-card"
-					onEdit={path => {
-						delTabs(path as string);
-					}}
-				>
-					{tabsList.map((item: Menu.MenuOptions) => {
-						return (
-							<TabPane
-								key={item.path}
-								tab={
-									<span>
-										{item.path == HOME_URL ? <HomeFilled /> : ""}
-										{item.title}
-									</span>
-								}
-								closable={item.path !== HOME_URL}
-							></TabPane>
-						);
-					})}
-				</Tabs>
-			</div>
+			{!themeConfig.tabs && (
+				<div className="tabs">
+					<Tabs
+						animated
+						activeKey={activeValue}
+						onChange={clickTabs}
+						hideAdd
+						type="editable-card"
+						onEdit={path => {
+							delTabs(path as string);
+						}}
+					>
+						{tabsList.map((item: Menu.MenuOptions) => {
+							return (
+								<TabPane
+									key={item.path}
+									tab={
+										<span>
+											{item.path == HOME_URL ? <HomeFilled /> : ""}
+											{item.title}
+										</span>
+									}
+									closable={item.path !== HOME_URL}
+								></TabPane>
+							);
+						})}
+					</Tabs>
+				</div>
+			)}
 		</>
 	);
 };

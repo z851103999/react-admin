@@ -1,5 +1,6 @@
 export interface GlobalState {
 	token: string;
+	themeConfig: ThemeConfigProp;
 }
 
 export interface MenuState {
@@ -23,4 +24,15 @@ export interface AuthState {
 		[pathName: string]: any;
 	};
 	authRouter: string[];
+}
+
+export interface ThemeConfigProp {
+	primary: string;
+	isDark: boolean;
+	// 灰色或色弱
+	weakOrGray: string;
+	// 面包屑
+	breadcrumb: boolean;
+	tabs: boolean;
+	footer: boolean;
 }

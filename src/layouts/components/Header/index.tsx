@@ -5,6 +5,7 @@ import BreadcrumbNav from "./components/BreadcrumbNav";
 import Fullscreen from "./components/Fullscreen";
 
 import "./index.less";
+import Theme from "./components/Theme";
 
 const LayoutHeader: React.FC = () => {
 	const { Header } = Layout;
@@ -17,6 +18,7 @@ const LayoutHeader: React.FC = () => {
 			</div>
 			<div className="header-ri">
 				<Fullscreen />
+				<Theme />
 				<span className="username">React-admin</span>
 			</div>
 		</Header>

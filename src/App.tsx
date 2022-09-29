@@ -1,14 +1,18 @@
-import { ConfigProvider } from "antd";
-import { HashRouter } from "react-router-dom";
 import React from "react";
+import { HashRouter } from "react-router-dom";
+import { ConfigProvider } from "antd";
+import { connect } from "react-redux";
 import zhCN from "antd/es/locale/zh_CN";
 import Router from "@/routers/index";
-import "antd/dist/antd.css";
-import { connect } from "react-redux";
 import AuthRouter from "@/routers/utils/authRouter";
-// import AuthRouter from "@/routers/utils/authRouter";
+import useTheme from "@/hooks/useTheme";
 
-const App: React.FC = () => {
+const App: React.FC = (props: any) => {
+	const { themeConfig } = props;
+
+	// 全局使用主题
+	useTheme(themeConfig);
+
 	return (
 		<HashRouter>
 			<ConfigProvider locale={zhCN}>
@@ -21,4 +25,5 @@ const App: React.FC = () => {
 };
 
 const mapStateToProps = (state: any) => state.global;
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = null;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
