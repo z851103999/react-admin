@@ -7,7 +7,7 @@ import { updateCollapse } from "@/redux/modules/menu/action";
 import SwitchDark from "@/components/SwitchDark";
 
 const Theme = (props: any) => {
-	const [visible, setVisible] = useState<boolean>(false);
+	const [open, setOpen] = useState<boolean>(false);
 	const { setThemeConfig, updateCollapse } = props;
 	const { isCollapse } = props.menu;
 	const { themeConfig } = props.global;
@@ -27,16 +27,16 @@ const Theme = (props: any) => {
 			<i
 				className="icon-style iconfont icon-zhuti"
 				onClick={() => {
-					setVisible(true);
+					setOpen(true);
 				}}
 			></i>
 			<Drawer
 				title="布局设置"
 				closable={false}
 				onClose={() => {
-					setVisible(false);
+					setOpen(false);
 				}}
-				visible={visible}
+				open={open}
 				width={320}
 			>
 				{/* 全局主题 */}

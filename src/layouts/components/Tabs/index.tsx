@@ -14,7 +14,7 @@ const LayoutTabs = (props: any) => {
 	const { tabsList } = props.tabs;
 	const { themeConfig } = props.global;
 	const { setTabsList } = props;
-	const { TabPane } = Tabs;
+	// const { TabPane } = Tabs;
 	const { pathname } = useLocation();
 	const [activeValue, setActiveValue] = useState<string>(pathname);
 
@@ -65,21 +65,28 @@ const LayoutTabs = (props: any) => {
 						onEdit={path => {
 							delTabs(path as string);
 						}}
-					>
-						{tabsList.map((item: Menu.MenuOptions) => {
-							return (
-								<TabPane
-									key={item.path}
-									tab={
-										<span>
-											{item.path == HOME_URL ? <HomeFilled /> : ""}
-											{item.title}
-										</span>
-									}
-									closable={item.path !== HOME_URL}
-								></TabPane>
-							);
+						items={tabsList.map((item: Menu.MenuOptions) => {
+							return {
+								key: `${item.path}`,
+								tab: <span>{item.path === HOME_URL ? <HomeFilled /> : ""}</span>,
+								closeable: item.path !== HOME_URL
+							};
 						})}
+					>
+						{/*{tabsList.map((item: Menu.MenuOptions) => {*/}
+						{/*	return (*/}
+						{/*		<TabPane*/}
+						{/*			key={item.path}*/}
+						{/*			tab={*/}
+						{/*				<span>*/}
+						{/*					{item.path == HOME_URL ? <HomeFilled /> : ""}*/}
+						{/*					{item.title}*/}
+						{/*				</span>*/}
+						{/*			}*/}
+						{/*			closable={item.path !== HOME_URL}*/}
+						{/*		></TabPane>*/}
+						{/*	);*/}
+						{/*})}*/}
 					</Tabs>
 				</div>
 			)}

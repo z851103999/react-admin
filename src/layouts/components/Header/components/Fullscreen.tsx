@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import screenfull from "screenfull";
-import { FullscreenOutlined, FullscreenExitOutlined } from "@ant-design/icons";
+// import { FullscreenOutlined, FullscreenExitOutlined } from "@ant-design/icons";
 import { message } from "antd";
 
 // https://github.com/sindresorhus/screenfull
@@ -31,9 +31,7 @@ const Fullscreen: React.FC = () => {
 	};
 
 	return (
-		<span>
-			{fullScreen ? <FullscreenExitOutlined onClick={handleFullScreen} /> : <FullscreenOutlined onClick={handleFullScreen} />}
-		</span>
+		<i className={["icon-style iconfont", fullScreen ? "icon-suoxiao" : "icon-fangda"].join(" ")} onClick={handleFullScreen}></i>
 	);
 };
 export default Fullscreen;
