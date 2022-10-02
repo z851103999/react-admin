@@ -6,6 +6,7 @@ import Fullscreen from "./components/Fullscreen";
 
 import "./index.less";
 import Theme from "./components/Theme";
+import AvatarIcon from "@/layouts/components/Header/components/AvatarIcon";
 
 const LayoutHeader: React.FC = () => {
 	const { Header } = Layout;
@@ -20,6 +21,7 @@ const LayoutHeader: React.FC = () => {
 				<Fullscreen />
 				<Theme />
 				<span className="username">React-admin</span>
+				<AvatarIcon />
 			</div>
 		</Header>
 	);
