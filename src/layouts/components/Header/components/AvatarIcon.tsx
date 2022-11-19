@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useRef } from "react";
-import { Modal, message, Menu, Dropdown, Avatar } from "antd";
+import { Modal, message, Dropdown, Avatar } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { HOME_URL } from "@/config/config";
 import { setToken } from "@/redux/modules/global/action";
@@ -34,39 +34,35 @@ const AvatarIcon: React.FC = (props: any) => {
 		});
 	};
 
-	const menu = (
-		<Menu
-			items={[
-				{
-					key: "1",
-					label: <span className="dropdown-item">首页</span>,
-					onClick: () => navigate(HOME_URL)
-				},
-				{
-					key: "2",
-					label: <span className="dropdown-item">个人信息</span>,
-					onClick: () => infoRef.current!.showModal({ name: 11 })
-				},
-				{
-					key: "3",
-					label: <span className="dropdown-item">修改密码</span>,
-					onClick: () => passRef.current!.showModal({ name: 11 })
-				},
-				{
-					type: "divider"
-				},
-				{
-					key: "4",
-					label: <span className="dropdown-item">退出登录</span>,
-					onClick: logout
-				}
-			]}
-		></Menu>
-	);
+	const items = [
+		{
+			key: "1",
+			label: <span className="dropdown-item">首页</span>,
+			onClick: () => navigate(HOME_URL)
+		},
+		{
+			key: "2",
+			label: <span className="dropdown-item">个人信息</span>,
+			onClick: () => infoRef.current!.showModal({ name: 11 })
+		},
+		{
+			key: "3",
+			label: <span className="dropdown-item">修改密码</span>,
+			onClick: () => passRef.current!.showModal({ name: 11 })
+		},
+		{
+			type: "divider"
+		},
+		{
+			key: "4",
+			label: <span className="dropdown-item">退出登录</span>,
+			onClick: logout
+		}
+	];
 
 	return (
 		<>
-			<Dropdown overlay={menu} placement="bottom" arrow trigger={["click"]}>
+			<Dropdown menu={{ items }} placement="bottom" arrow trigger={["click"]}>
 				<Avatar size="large" src={avatar} />
 			</Dropdown>
 		</>

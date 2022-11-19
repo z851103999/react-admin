@@ -7,7 +7,7 @@ const LayoutFooter = (props: any) => {
 		<>
 			{!themeConfig.footer && (
 				<div className="footer">
-					<a href="http://www.spicyboy.cn/" target="_blank" rel="noreferrer">
+					<a href="www.antd.com" target="_blank" rel="noreferrer">
 						react-admin
 					</a>
 				</div>

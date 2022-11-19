@@ -1,5 +1,9 @@
 const Home = () => {
-	return <div>welcome react admin</div>;
+	return (
+		<div className="home card">
+			<img src="{welcome}" alt="welcome" />
+		</div>
+	);
 };
 
 export default Home;

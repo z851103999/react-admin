@@ -4,6 +4,8 @@ import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
 import { wrapperEnv } from "./src/utils/getEnv";
 import { createHtmlPlugin } from "vite-plugin-html";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import viteCompression from "vite-plugin-compression";
 
 export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
@@ -46,7 +48,22 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 				}
 			}),
 			react(),
-			eslintPlugin()
+			// eslint 报错显示道浏览器上
+			eslintPlugin(),
+			// svg
+			createSvgIconsPlugin({
+				iconDirs: [resolve(process.cwd(), "src/assets/icons")],
+				symbolId: "icon-[dir]-[name]"
+			}),
+			// gzip compress
+			viteEnv.VITE_BUILD_GZIP &&
+				viteCompression({
+					verbose: true,
+					disable: false,
+					threshold: 10240,
+					algorithm: "gzip",
+					ext: ".gz"
+				})
 		]
 	};
 });

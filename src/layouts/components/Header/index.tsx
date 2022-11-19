@@ -20,7 +20,7 @@ const LayoutHeader: React.FC = () => {
 			<div className="header-ri">
 				<Fullscreen />
 				<Theme />
-				<span className="username">React-admin</span>
+				<span className="username">admin</span>
 				<AvatarIcon />
 			</div>
 		</Header>
