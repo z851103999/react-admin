@@ -1,9 +1,9 @@
 import { useLocation, Navigate } from "react-router-dom";
 import { AxiosCanceler } from "@/api/helper/axiosCancel";
 import { searchRoute } from "@/utils/utils";
-import { rootRouter } from "@/routers";
+import { rootRouter } from "@/routers/index";
 import { HOME_URL } from "@/config/config";
-import { store } from "@/redux";
+import { store } from "@/redux/index";
 
 const axiosCanceler = new AxiosCanceler();
 

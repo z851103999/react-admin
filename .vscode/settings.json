@@ -1,10 +1,6 @@
 {
-	"cSpell.words": [
-		"persistor",
-		"Sider",
-		"stylelint"
-	],
-	"commentTranslate.source": "Bing",
-	"i18n-ally.localesPaths": [],
-	"nuxt.isNuxtApp": false
+	"nuxt.isNuxtApp": false,
+	"i18n-ally.localesPaths": [
+		"src/language"
+	]
 }

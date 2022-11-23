@@ -1,5 +1,5 @@
 import { Tabs } from "antd";
-import { HomeFilled } from "@ant-design/icons";
+// import { HomeFilled } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
@@ -7,16 +7,29 @@ import { connect } from "react-redux";
 import { setTabsList } from "@/redux/modules/tabs/actions";
 import { routerArray } from "@/routers";
 import { searchRoute } from "@/utils/utils";
-// import MoreButton from "./components/MoreButton";
+
 import "./index.less";
+import { HomeFilled } from "@ant-design/icons";
 
 const LayoutTabs = (props: any) => {
 	const { tabsList } = props.tabs;
 	const { themeConfig } = props.global;
 	const { setTabsList } = props;
-	// const { TabPane } = Tabs;
 	const { pathname } = useLocation();
 	const [activeValue, setActiveValue] = useState<string>(pathname);
+
+	const items = tabsList.map((item: Menu.MenuOptions) => {
+		return {
+			key: `${item.path}`,
+			label: (
+				<span>
+					{item.path == HOME_URL ? <HomeFilled /> : ""}
+					{item.title}
+				</span>
+			),
+			closeable: item.path !== HOME_URL
+		};
+	});
 
 	const navigate = useNavigate();
 
@@ -65,29 +78,8 @@ const LayoutTabs = (props: any) => {
 						onEdit={path => {
 							delTabs(path as string);
 						}}
-						items={tabsList.map((item: Menu.MenuOptions) => {
-							return {
-								key: `${item.path}`,
-								tab: <span>{item.path === HOME_URL ? <HomeFilled /> : ""}</span>,
-								closeable: item.path !== HOME_URL
-							};
-						})}
-					>
-						{/*{tabsList.map((item: Menu.MenuOptions) => {*/}
-						{/*	return (*/}
-						{/*		<TabPane*/}
-						{/*			key={item.path}*/}
-						{/*			tab={*/}
-						{/*				<span>*/}
-						{/*					{item.path == HOME_URL ? <HomeFilled /> : ""}*/}
-						{/*					{item.title}*/}
-						{/*				</span>*/}
-						{/*			}*/}
-						{/*			closable={item.path !== HOME_URL}*/}
-						{/*		></TabPane>*/}
-						{/*	);*/}
-						{/*})}*/}
-					</Tabs>
+						items={items}
+					/>
 				</div>
 			)}
 		</>
